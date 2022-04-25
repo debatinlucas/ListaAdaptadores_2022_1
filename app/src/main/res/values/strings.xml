@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">Listas e Adaptadores</string>
     <string name="visualizar">Visualizar</string>
-    <string-array name="serieA">
-        <item>Chapecoense</item>
-        <item>Flamengo</item>
-        <item>Internacional</item>
-        <item>Palmeiras</item>
-    </string-array>
     <string-array name="serieB">
-        <item>Avaí</item>
         <item>Brusque</item>
-        <item>Botafogo</item>
+        <item>Chapecoense</item>
         <item>Cruzeiro</item>
+        <item>Vasco</item>
+    </string-array>
+    <string-array name="serieC">
+        <item>ABC</item>
+        <item>Figueirense</item>
+        <item>Manaus</item>
+        <item>Vitória</item>
     </string-array>
 </resources>
