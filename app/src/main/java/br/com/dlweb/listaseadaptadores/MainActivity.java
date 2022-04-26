@@ -8,14 +8,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Spinner spinnerSeries;
+    private ListView listViewTimes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Spinner spinnerSeries = findViewById(R.id.spinnerSeries);
+        spinnerSeries = findViewById(R.id.spinnerSeries);
 
         //Criar o array de dados estáticos
         String[] series = new String[] {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         //Setar o adaptador
         spinnerSeries.setAdapter(spinnerAdapter);
 
-        ListView listViewTimes = findViewById(R.id.listViewTimes);
+        listViewTimes = findViewById(R.id.listViewTimes);
         //Ao selecionar um spinner
         spinnerSeries.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -74,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /* Criar um método visualizarSelecoes para imprimir a série e o time selecionados.
-       Da seguinte forma '"Série selecionada: " + nomeSerie + " - Time selecionado: " + nomeTime'
+       Da seguinte forma '"Série selecionada: " + nomeSerie + " - Time selecionado: "
+       + nomeTime'
        O método deverá ser executado no XML do botão visualizar.
 
        Tempo: 20 minutos
@@ -83,5 +87,16 @@ public class MainActivity extends AppCompatActivity {
 
        Assim que terminar, chamar o professor para a verificação.
     */
+    public void visualizarSelecoes(View v) {
+        String nomeSerie = spinnerSeries.getSelectedItem().toString();
+        int positionLV = listViewTimes.getCheckedItemPosition();
+        String nomeTime = "nenhum";
+        if (positionLV >= 0) {
+            nomeTime = listViewTimes.getItemAtPosition(positionLV).toString();
+        }
+
+        Toast.makeText(this, "Série selecionada: "
+                + nomeSerie + " - Time selecionado: " + nomeTime, Toast.LENGTH_LONG).show();
+    }
 
 }
